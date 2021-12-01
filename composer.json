@@ -1,0 +1,37 @@
+{
+  "name": "fengdangxing/php-elasticsearch-sql",
+  "description": "php-elasticsearch-sql",
+  "keywords": [
+    "php-elasticsearch-sql",
+    "elasticsearch",
+    "sql"
+  ],
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "fengdangxing",
+      "email": "972530453@qq.com",
+      "homepage": "",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.6.0",
+    "ongr/elasticsearch-dsl": "^7.2",
+    "elasticsearch/elasticsearch": "^7.15"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ],
+  "require-dev": {
+    "fengdangxing/php-elasticsearch-sql": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "fengdangxing\\db\\": "lib"
+    }
+  }
+}
