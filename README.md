@@ -2,23 +2,14 @@
 ElasticsearchSql 基类即可
 ```php
 #效果
-$merge = new User();
- $query = $merge
-            ->andWhere(['TransportName' => '万邦-欧洲速邮专线平邮-带电'])
-            ->andWhere(['shop_id' => 42])
-            ->andWhere(['OrderCode' => 2019122316119958820])
-            ->notWhere(['shop_id' => 42])
-            ->betweenWhere('AddTime', '2019-12-23 16:11:00', '2019-12-23 16:11:40')
-            ->likeWhere('TransportName', '%云途% AND %云途% NOT %标快% NOT %标快% NOT %标快% NOT %标快%')
-            ->compareWhere('PayTime', 'gt', '2019-12-23 15:20:40')
-            ->compareWhere('PayTime', 'lt', '2019-12-23 15:20:44')
-            ->notInWhere('shop_id', [42, 41, 43])
-            ->inWhere('shop_id', [42, 41, 43])
-            ->sum('ProductVolume')
-            ->min('ProductVolume')
-            ->max('ProductVolume')
-            ->avg('ProductVolume')
-            ->setPage(0, 20)
-            ->groupBy('OrderCode')
-            ->orderBy('PayTime', 'asc')
-            ->select();
+$es = new User();
+$es->createIndex();//创建索引
+$es->addData(['user_id' => 1, 'user_name' => 'ffff'], 1);//添加文档
+
+$es->mustTerm(['user_id' => 1, 'user_name' => 'ffff'])//must term 条件
+ ->mustRange(['user_id' => ['gt', 0]])
+ ->orderBy(['user_id' => 'desc'])
+ ->groupBy('term_user_id', 'user_id', [$es->count('count', 'user_id', true)]);
+$result = $es->queryDsl();
+$es->getDsl(true);//打印dsl语句
+var_dump($result);
