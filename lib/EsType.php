@@ -1,6 +1,6 @@
 <?php
 
-namespace fengdangxing\lib;
+namespace fengdangxing\esql;
 
 /**
  * @desc es字段类型-常用而已

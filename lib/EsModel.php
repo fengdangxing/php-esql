@@ -1,6 +1,6 @@
 <?php
 
-namespace fengdangxing\lib;
+namespace fengdangxing\esql;
 
 use Elasticsearch\ClientBuilder;
 

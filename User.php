@@ -9,8 +9,8 @@
 
 namespace fengdangxing\user;
 
-use fengdangxing\lib\EsModel;
-use fengdangxing\lib\EsType;
+use fengdangxing\esql\EsModel;
+use fengdangxing\esql\EsType;
 
 /**
  * @desc es 用户模型类

@@ -1,6 +1,6 @@
 <?php
 
-namespace fengdangxing\lib\Dsl;
+namespace fengdangxing\esql\Dsl;
 
 use ONGR\ElasticsearchDSL\Search;
 
