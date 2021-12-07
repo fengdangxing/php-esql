@@ -41,6 +41,27 @@ trait ESql
     }
 
     /**
+     * @desc 必须包含条件
+     * @author 1
+     * @version v2.1
+     * @date: 2021/11/30
+     * @param array $where
+     * @return ESql
+     */
+    public function mustMatch(array $where)
+    {
+        if (empty($where)) {
+            return $this;
+        }
+        $query = [];
+        foreach ($where as $key => $value) {
+            $query[] = $this->bool->match($key, $value);
+        }
+        $this->bool->addMustToBool($query);
+        return $this;
+    }
+
+    /**
      * @desc 必须不等于条件
      * @author 1
      * @version v2.1
