@@ -179,8 +179,9 @@ trait EsType
         $back['type'] = $type;
         if (static::$paramter) {
             foreach (static::$paramter as $field => $value) {
-                $back[$field] = $value;
+                $back[$value[0]] = $value[1];
             }
+            static::$paramter = [];
         }
         if (static::getFields()) {
             $back['fields'][static::getFields()[0]]['type'] = static::getFields()[1];
