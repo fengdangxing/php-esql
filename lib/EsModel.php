@@ -206,6 +206,24 @@ class EsModel
         self::$clients->create($params);
     }
 
+    /**
+     * @desc 更新一条文档内容
+     * @author 1
+     * @version v2.1
+     * @date: 2021/12/10
+     * @param array $data
+     * @param $id
+     * @return array
+     */
+    public function updateOne(array $data, $id)
+    {
+        $params['id'] = $id;
+        $params['index'] = self::getIndex();
+        $params['type'] = self::getType();
+        $params['body'] = ['doc' => $data];
+        return self::$clients->update($params);
+    }
+
     public function queryDsl()
     {
         $dsl = $this->getDsl()->dsl;
