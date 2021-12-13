@@ -41,6 +41,27 @@ trait ESql
     }
 
     /**
+     * @desc 必须等于多值条件
+     * @author 1
+     * @version v2.1
+     * @date: 2021/11/30
+     * @param array $where
+     * @return ESql
+     */
+    public function mustTerms(array $where)
+    {
+        if (empty($where)) {
+            return $this;
+        }
+        $query = [];
+        foreach ($where as $key => $value) {
+            $query[] = $this->bool->terms($key, $value);
+        }
+        $this->bool->addMustToBool($query);
+        return $this;
+    }
+
+    /**
      * @desc 必须包含条件
      * @author 1
      * @version v2.1
@@ -113,6 +134,15 @@ trait ESql
         return $this;
     }
 
+    /**
+     * @desc 功能描述
+     * @author 1
+     * @version v2.1
+     * @date: 2021/12/13
+     * @param $path
+     * @param $EsModel | 当前模型类
+     * @return $this
+     */
     public function mustNested($path, $EsModel)
     {
         $EsModel->bool->addBoolToNested($path);
