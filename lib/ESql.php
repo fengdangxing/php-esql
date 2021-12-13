@@ -1,10 +1,10 @@
 <?php
 
-namespace common\es_new\lib;
+namespace fengdangxing\esql;
 
-use common\es_new\lib\Dsl\AggDsl;
-use common\es_new\lib\Dsl\BoolDsl;
-use common\es_new\lib\Dsl\SortDsl;
+use fengdangxing\esql\Dsl\AggDsl;
+use fengdangxing\esql\Dsl\BoolDsl;
+use fengdangxing\esql\Dsl\SortDsl;
 use ONGR\ElasticsearchDSL\Search;
 
 trait ESql

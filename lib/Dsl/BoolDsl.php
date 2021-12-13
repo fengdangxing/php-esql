@@ -1,6 +1,6 @@
 <?php
 
-namespace common\es_new\lib\Dsl;
+namespace fengdangxing\esql\Dsl;
 
 use ONGR\ElasticsearchDSL\Query\Compound\BoolQuery;
 use ONGR\ElasticsearchDSL\Search;
