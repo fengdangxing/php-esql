@@ -37,14 +37,16 @@ trait EsType
      * @version v2.1
      * @date: 2021/12/01
      * @param bool $is_analyzer
+     * @param bool $index
      * @return array
      */
-    public static function getText($is_analyzer = false)
+    public static function getText($is_analyzer = false, $index = true)
     {
         if ($is_analyzer) {
             static::addParamter('analyzer', 'ik_max_word');#ik中文分词器
         }
 
+        static::addParamter('index', $index);
         return static::getBack(static::$text);
     }
 
