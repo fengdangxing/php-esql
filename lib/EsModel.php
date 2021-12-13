@@ -105,7 +105,8 @@ class EsModel
         //"type":"inter",
         //"analyzer":"ik_max_word",
         //"search_analyzer":"ik_max_word"
-        $mapping['@timestamp'] = ["format" => "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis", "type" => "date"];
+        $mapping['@create_time'] = ["format" => "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis", "type" => "date"];
+        $mapping['@update_time'] = ["format" => "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis", "type" => "date"];
         $this->mapping['properties'] = $mapping;
     }
 
@@ -199,6 +200,7 @@ class EsModel
 
     public function addData(array $data, $id)
     {
+        $data['@create_time'] = date("Y-m-d H:i:s", time());
         $params['id'] = $id;
         $params['index'] = self::getIndex();
         $params['type'] = self::getType();
@@ -217,6 +219,7 @@ class EsModel
      */
     public function updateOne(array $data, $id)
     {
+        $data['@update_time'] = date("Y-m-d H:i:s", time());
         $params['id'] = $id;
         $params['index'] = self::getIndex();
         $params['type'] = self::getType();
