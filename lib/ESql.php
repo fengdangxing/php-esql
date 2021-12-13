@@ -55,7 +55,9 @@ trait ESql
         }
         $query = [];
         foreach ($where as $key => $value) {
-            $query[] = $this->bool->terms($key, $value);
+            if (is_array($value)) {
+                $query[] = $this->bool->terms($key, $value);
+            }
         }
         $this->bool->addMustToBool($query);
         return $this;
@@ -98,6 +100,29 @@ trait ESql
         $query = [];
         foreach ($where as $key => $value) {
             $query[] = $this->bool->term($key, $value);
+        }
+        $this->bool->addMustNotToBool($query);
+        return $this;
+    }
+
+    /**
+     * @desc 必须不等于条件
+     * @author 1
+     * @version v2.1
+     * @date: 2021/11/30
+     * @param array $where
+     * @return ESql
+     */
+    public function mustNotTerms(array $where)
+    {
+        if (empty($where)) {
+            return $this;
+        }
+        $query = [];
+        foreach ($where as $key => $value) {
+            if (is_array($value)) {
+                $query[] = $this->bool->terms($key, $value);
+            }
         }
         $this->bool->addMustNotToBool($query);
         return $this;
