@@ -105,7 +105,7 @@ class EsModel
         //"type":"inter",
         //"analyzer":"ik_max_word",
         //"search_analyzer":"ik_max_word"
-        $mapping['@timestamp'] = ["format" => "strict_date_optional_time||epoch_millis", "type" => "date"];
+        $mapping['@timestamp'] = ["format" => "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis", "type" => "date"];
         $this->mapping['properties'] = $mapping;
     }
 
