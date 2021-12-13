@@ -1,6 +1,6 @@
 <?php
 
-namespace fengdangxing\esql\Dsl;
+namespace common\es_new\lib\Dsl;
 
 use ONGR\ElasticsearchDSL\Query\Compound\BoolQuery;
 use ONGR\ElasticsearchDSL\Search;
@@ -22,6 +22,8 @@ class BoolDsl extends BaseDsl
     private $searchOb;
 
     private $boolQuery;
+
+    public $nestedQuery;
 
     public function __construct(Search $search)
     {
@@ -60,6 +62,11 @@ class BoolDsl extends BaseDsl
         }
         return $this;
     }
+    public function addMustNested($nested)
+    {
+        $this->boolQuery->add($nested, BoolQuery::MUST);
+        return $this;
+    }
 
     public function addBoolToSearch()
     {
@@ -72,12 +79,17 @@ class BoolDsl extends BaseDsl
         foreach ($queryDsl as $k => $val) {
             $this->searchOb->addQuery($val);
         }
+        return $this;
+    }
 
+    public function addBoolToNested($path)
+    {
+        $this->nestedQuery = $this->nestedQuery($path, $this->boolQuery);
         return $this;
     }
 
     public function setPage($from = 0, $size = 25)
-        {
+    {
         $this->searchOb->setFrom($from);
         $this->searchOb->setSize($size);
         return $this;

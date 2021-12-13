@@ -1,10 +1,10 @@
 <?php
 
-namespace fengdangxing\esql;
+namespace common\es_new\lib;
 
-use fengdangxing\esql\Dsl\AggDsl;
-use fengdangxing\esql\Dsl\BoolDsl;
-use fengdangxing\esql\Dsl\SortDsl;
+use common\es_new\lib\Dsl\AggDsl;
+use common\es_new\lib\Dsl\BoolDsl;
+use common\es_new\lib\Dsl\SortDsl;
 use ONGR\ElasticsearchDSL\Search;
 
 trait ESql
@@ -113,6 +113,13 @@ trait ESql
         return $this;
     }
 
+    public function mustNested($path, $EsModel)
+    {
+        $EsModel->bool->addBoolToNested($path);
+        $this->bool->addMustNested($EsModel->bool->nestedQuery);
+        return $this;
+    }
+
     /**
      * @desc 或者条件-包含查询
      * @author 1
@@ -160,7 +167,6 @@ trait ESql
         $this->bool->addShouldToBool($query);
         return $this;
     }
-
 
     public function orderBy(array $orders)
     {
@@ -236,22 +242,6 @@ trait ESql
     private function allBool()
     {
         $this->bool->addBoolToSearch();
-        /*$bool = new BoolDsl($this->searchOb);
-        $sort = new SortDsl($this->searchOb);
-        $bool->addMustToBool([
-            $bool->match('user_name', 'zhuangsuqin')
-        ])
-            ->setPage(0, 5)->addBoolToSearch();
-
-        $sort->addSortToSearch([
-            $sort->sort('type_n', 'asc'),
-            $sort->sort('ip', 'asc'),
-        ]);*/
-        //$agg = new AggDsl($this->searchOb);
-        //$agg->addAggToTermsAgg('terms_user_id', 'user_id', [
-        //     $agg->max('type_n', 'type_n')
-        //  ]);
-        // $this->getDsl();
     }
 
     public function getDsl($debug = false)

@@ -1,6 +1,6 @@
 <?php
 
-namespace fengdangxing\esql\Dsl;
+namespace common\es_new\lib\Dsl;
 
 use ONGR\ElasticsearchDSL\Aggregation\Bucketing\TermsAggregation;
 use ONGR\ElasticsearchDSL\Aggregation\Matrix\MaxAggregation;
@@ -9,8 +9,10 @@ use ONGR\ElasticsearchDSL\Aggregation\Metric\CardinalityAggregation;
 use ONGR\ElasticsearchDSL\Aggregation\Metric\ExtendedStatsAggregation;
 use ONGR\ElasticsearchDSL\Aggregation\Metric\MinAggregation;
 use ONGR\ElasticsearchDSL\Aggregation\Metric\SumAggregation;
+use ONGR\ElasticsearchDSL\Query\Compound\BoolQuery;
 use ONGR\ElasticsearchDSL\Query\FullText\MatchQuery;
 use ONGR\ElasticsearchDSL\Query\FullText\MultiMatchQuery;
+use ONGR\ElasticsearchDSL\Query\Joining\NestedQuery;
 use ONGR\ElasticsearchDSL\Query\MatchAllQuery;
 use ONGR\ElasticsearchDSL\Query\TermLevel\RangeQuery;
 use ONGR\ElasticsearchDSL\Query\TermLevel\TermQuery;
@@ -125,5 +127,11 @@ class BaseDsl
             $TermAggregation->addAggregation($agg);
         }
         return $TermAggregation;
+    }
+
+    //对象查询
+    public function nestedQuery($path, BoolQuery $bool)
+    {
+        return new NestedQuery($path, $bool);
     }
 }
