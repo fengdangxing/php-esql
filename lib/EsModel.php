@@ -26,6 +26,7 @@ class EsModel
     private $hosts = [];//连接ips
     private $username = '';
     private $password = '';
+    private $timezone = 'Asia/Shanghai';
 
     /**
      * @var \Elasticsearch\Client
@@ -34,6 +35,7 @@ class EsModel
 
     public function _init()
     {
+        date_default_timezone_set($this->getTimezone());
         self::getDb($this->hosts, $this->username, $this->password);
     }
 
@@ -275,5 +277,21 @@ class EsModel
         ];
         $response = self::$clients->search($params);
         return $response;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTimezone()
+    {
+        return $this->timezone;
+    }
+
+    /**
+     * @param string $timezone
+     */
+    public function setTimezone($timezone)
+    {
+        $this->timezone = $timezone;
     }
 }
