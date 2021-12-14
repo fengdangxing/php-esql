@@ -227,12 +227,21 @@ class EsModel
         return self::$clients->update($params);
     }
 
-    public function queryDsl()
+    /**
+     * @desc 执行dsl语句
+     * @author 1
+     * @version v2.1
+     * @date: 2021/12/14
+     * @param array $field
+     * @return mixed
+     */
+    public function queryDsl(array $field = [])
     {
         $dsl = $this->getDsl()->dsl;
         $params = [
             'index' => $this->index,
-            'body' => $dsl
+            'body' => $dsl,
+            '_source_includes' => $field
         ];
         $response = self::$clients->search($params);
         return $response;
