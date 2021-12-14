@@ -246,6 +246,18 @@ class EsModel
     }
 
     /**
+     * @desc 获取连接
+     * @author 1
+     * @version v2.1
+     * @date: 2021/12/14
+     * @return \Elasticsearch\Client
+     */
+    public function getClients()
+    {
+        return self::$clients;
+    }
+
+    /**
      * @desc 执行dsl语句
      * @author 1
      * @version v2.1
