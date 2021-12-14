@@ -22,11 +22,14 @@ class EsModel
     private $mapping = [];//字段列表
     private $number_of_shards = 3;//定义分片个数
     private $number_of_replicas = 2;//定义副本个数
+    private $max_result_window = 10000;//查询返回总个数
 
     private $hosts = [];//连接ips
     private $username = '';
     private $password = '';
     private $timezone = 'Asia/Shanghai';
+
+    private $settings;
 
     /**
      * @var \Elasticsearch\Client
@@ -71,7 +74,8 @@ class EsModel
                 'mappings' => $this->getMapping(),
                 'settings' => [
                     'number_of_shards' => $this->getNumberOfShards(),
-                    'number_of_replicas' => $this->getNumberOfReplicas()
+                    'number_of_replicas' => $this->getNumberOfReplicas(),
+                    'max_result_window' => $this->getMaxResultWindow()
                 ]
             ]
         ];
@@ -293,5 +297,31 @@ class EsModel
     public function setTimezone($timezone)
     {
         $this->timezone = $timezone;
+    }
+
+    public function updateSettings($params = [])
+    {
+        $deleteParams = [
+            'index' => $this->getIndex(),
+            'body' => $params
+        ];
+        $response = self::$clients->indices()->putSettings($deleteParams);
+        return $response['acknowledged'];
+    }
+
+    /**
+     * @return int
+     */
+    public function getMaxResultWindow()
+    {
+        return $this->max_result_window;
+    }
+
+    /**
+     * @param int $max_result_window
+     */
+    public function setMaxResultWindow($max_result_window)
+    {
+        $this->max_result_window = $max_result_window;
     }
 }
