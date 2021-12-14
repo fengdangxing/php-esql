@@ -218,7 +218,7 @@ class EsModel
      * @param int $retry_on_conflict
      * @return array
      */
-    public function updateOne(array $data, $id, $retry_on_conflict = 5)
+    public function updateOne(array $data, $id, $retry_on_conflict = 0)
     {
         $data['@update_time'] = date("Y-m-d H:i:s", time());
         $params['id'] = $id;
