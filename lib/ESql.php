@@ -303,6 +303,9 @@ trait ESql
     {
         $this->allBool();
         $this->dsl = $this->searchOb->toArray();
+        if (!empty($this->dsl)) {
+            $this->dsl["track_total_hits"] = true;
+        }
         if ($debug) {
             echo json_encode($this->dsl);
             exit;
