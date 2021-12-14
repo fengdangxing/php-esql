@@ -215,16 +215,34 @@ class EsModel
      * @date: 2021/12/10
      * @param array $data
      * @param $id
+     * @param int $retry_on_conflict
      * @return array
      */
-    public function updateOne(array $data, $id)
+    public function updateOne(array $data, $id, $retry_on_conflict = 5)
     {
         $data['@update_time'] = date("Y-m-d H:i:s", time());
         $params['id'] = $id;
         $params['index'] = self::getIndex();
         $params['type'] = self::getType();
         $params['body'] = ['doc' => $data];
+        if ($retry_on_conflict) $params['retry_on_conflict'] = $retry_on_conflict;
         return self::$clients->update($params);
+    }
+
+    /**
+     * @desc 是否存在文档
+     * @author 1
+     * @version v2.1
+     * @date: 2021/12/14
+     * @param $id
+     * @return bool
+     */
+    public function existsDoc($id): bool
+    {
+        $params['id'] = $id;
+        $params['index'] = self::getIndex();
+        $params['type'] = self::getType();
+        return self::$clients->exists($params);
     }
 
     /**
