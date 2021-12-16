@@ -75,7 +75,7 @@ class EsModel
                 'settings' => [
                     'number_of_shards' => $this->getNumberOfShards(),
                     'number_of_replicas' => $this->getNumberOfReplicas(),
-                    'max_result_window' => $this->getMaxResultWindow()
+                    //'max_result_window' => $this->getMaxResultWindow()
                 ]
             ]
         ];
