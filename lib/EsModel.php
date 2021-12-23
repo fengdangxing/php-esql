@@ -114,6 +114,7 @@ class EsModel
         $mapping['@create_time'] = ["format" => "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis", "type" => "date"];
         $mapping['@update_time'] = ["format" => "yyyy-MM-dd HH:mm:ss||yyyy-MM-dd||epoch_millis", "type" => "date"];
         $this->mapping['properties'] = $mapping;
+        $this->mapping['dynamic'] = false;
     }
 
     /**
