@@ -278,34 +278,50 @@ trait ESql
         return $this;
     }
 
-    public function groupBy($name, $field, array $index, $sort = [])
+    /**
+     * @desc 单个分桶
+     * @author 1
+     * @version v2.1
+     * @date: 2021/12/31
+     * @param $name
+     * @param $field
+     * @param array $aggs
+     * @param int $size
+     * @param array $sort
+     * @return ESql
+     */
+    public function groupBy($name, $field, array $aggs, $size = 1000000, $sort = [])
     {
         $agg = new AggDsl($this->searchOb);
-        $agg->addAggToTermsAgg($name, $field, $index, $sort);
+        $agg->addAggToTermsAgg($name, $field, $aggs, $size, $sort);
         return $this;
     }
 
-    public function max($name, $field, $isGroupBy = false)
+    /**
+     * @desc 聚合分页
+     * @author 1
+     * @version v2.1
+     * @date: 2021/12/31
+     * @param int $from
+     * @param int $size
+     * @return \ONGR\ElasticsearchDSL\Aggregation\Pipeline\BucketSortAggregation
+     */
+    public function groupPage($from = 0, $size = 10)
     {
         $agg = new AggDsl($this->searchOb);
-        if ($isGroupBy) {
-            return $agg->max($name, $field);
-        }
-        $agg->max($name, $field);
-        $agg->addAggToSearch($agg->max($name, $field));
-        return $this;
+        return $agg->bucketSort($from, $size);
     }
 
-    public function count($name, $field, $isGroupBy = false)
-    {
-        $agg = new AggDsl($this->searchOb);
-        if ($isGroupBy) {
-            return $agg->cardinality($name, $field);
-        }
-        $agg->addAggToSearch($agg->cardinality($name, $field));
-        return $this;
-    }
-
+    /**
+     * @desc 统计指标数值
+     * @author 1
+     * @version v2.1
+     * @date: 2021/12/31
+     * @param $name
+     * @param $field
+     * @param bool $isGroupBy
+     * @return $this|\ONGR\ElasticsearchDSL\Aggregation\Metric\ExtendedStatsAggregation
+     */
     public function extended_stats($name, $field, $isGroupBy = false)
     {
         $agg = new AggDsl($this->searchOb);

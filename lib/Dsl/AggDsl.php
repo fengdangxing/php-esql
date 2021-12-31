@@ -2,6 +2,7 @@
 
 namespace fengdangxing\esql\Dsl;
 
+use ONGR\ElasticsearchDSL\Aggregation\Pipeline\BucketSortAggregation;
 use ONGR\ElasticsearchDSL\Search;
 
 /**
@@ -35,10 +36,24 @@ class AggDsl extends BaseDsl
         return $this;
     }
 
-    public function addAggToTermsAgg($name, $field, array $aggs, $sort = [])
+    public function addAggToTermsAgg($name, $field, array $aggs, $size, $sort = [])
     {
-        foreach ($aggs as $k => $val) {
-            $this->searchOb->addAggregation($this->termsAggregation($name, $field, $val, $sort));
-        }
+        $this->searchOb->addAggregation($this->termsAggregation($name, $field, $val, $size, $sort));
+    }
+
+    /**
+     * @desc 聚合分页排序
+     * @author 1
+     * @version v2.1
+     * @date: 2021/12/31
+     * @param int $from
+     * @param int $size
+     * @return BucketSortAggregation
+     */
+    public function bucketSort($from = 0, $size = 10)
+    {
+        $Bucket = new BucketSortAggregation('bucket-sort');
+        $Bucket->setParameters(['size' => $size, 'from' => $from]);
+        return $Bucket;
     }
 }
