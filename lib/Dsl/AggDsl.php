@@ -22,11 +22,10 @@ class AggDsl extends BaseDsl
         $this->searchOb = $search;
     }
 
-    public function addAggToSearch(array $sorts)
+    public function addAggToSearch($agg)
     {
-        foreach ($sorts as $k => $val) {
-            $this->searchOb->addAggregation($val);
-        }
+        $this->searchOb->addAggregation($agg);
+        return $this;
 
     }
 

@@ -198,6 +198,27 @@ trait ESql
     }
 
     /**
+     * @desc 或者条件-包含查询
+     * @author 1
+     * @version v2.1
+     * @date: 2021/12/31
+     * @param array $where
+     * @return $this
+     */
+    public function shouldTerms(array $where)
+    {
+        if (empty($where)) {
+            return $this;
+        }
+        $query = [];
+        foreach ($where as $key => $value) {
+            $query[] = $this->bool->terms($key, $value);
+        }
+        $this->bool->addShouldToBool($query);
+        return $this;
+    }
+
+    /**
      * @desc 或者条件-范围查询
      * @author 1
      * @version v2.1
@@ -271,6 +292,7 @@ trait ESql
             return $agg->max($name, $field);
         }
         $agg->max($name, $field);
+        $agg->addAggToSearch($agg->max($name, $field));
         return $this;
     }
 
@@ -280,7 +302,7 @@ trait ESql
         if ($isGroupBy) {
             return $agg->cardinality($name, $field);
         }
-        $agg->cardinality($name, $field);
+        $agg->addAggToSearch($agg->cardinality($name, $field));
         return $this;
     }
 
@@ -290,7 +312,7 @@ trait ESql
         if ($isGroupBy) {
             return $agg->extended_stats($name, $field);
         }
-        $agg->extended_stats($name, $field);
+        $agg->addAggToSearch($agg->extended_stats($name, $field));
         return $this;
     }
 
