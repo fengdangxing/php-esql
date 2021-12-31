@@ -312,6 +312,26 @@ trait ESql
         return $agg->bucketSort($from, $size);
     }
 
+    public function sum($name, $field, $isGroupBy = false)
+    {
+        $agg = new AggDsl($this->searchOb);
+        if ($isGroupBy) {
+            return $agg->sum($name, $field);
+        }
+        $agg->addAggToSearch($agg->sum($name, $field));
+        return $this;
+    }
+
+    public function count($name, $field, $isGroupBy = false)
+    {
+        $agg = new AggDsl($this->searchOb);
+        if ($isGroupBy) {
+            return $agg->cardinality($name, $field);
+        }
+        $agg->addAggToSearch($agg->cardinality($name, $field));
+        return $this;
+    }
+
     /**
      * @desc 统计指标数值
      * @author 1
