@@ -123,7 +123,7 @@ class BaseDsl
         if (!empty($sort)) {
             $TermAggregation->setParameters(['order' => $sort]);//增加排序 ['_count' => 'desc']
         }
-        $TermAggregation->setParameters(['size' => $size]);//增加统计条数
+        //$TermAggregation->setParameters(['size' => $size]);//增加统计条数
         if ($agg) {
             foreach ($agg as $k => $value) {
                 $TermAggregation->addAggregation($value);
