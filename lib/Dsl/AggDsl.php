@@ -38,7 +38,7 @@ class AggDsl extends BaseDsl
 
     public function addAggToTermsAgg($name, $field, array $aggs, $size, $sort = [])
     {
-        $this->searchOb->addAggregation($this->termsAggregation($name, $field, $val, $size, $sort));
+        $this->searchOb->addAggregation($this->termsAggregation($name, $field, $aggs, $size, $sort));
     }
 
     /**
