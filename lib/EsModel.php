@@ -300,11 +300,20 @@ class EsModel
         $this->timezone = $timezone;
     }
 
-    public function updateSettings($params = [])
+    /**
+     * @desc 更新设置
+     * @author 1
+     * @version v2.1
+     * @date: 2022/01/06
+     * @return mixed
+     */
+    public function updateSettings()
     {
         $deleteParams = [
             'index' => $this->getIndex(),
-            'body' => $params
+            'body' => [
+                'max_result_window' => 100000000
+            ]
         ];
         $response = self::$clients->indices()->putSettings($deleteParams);
         return $response['acknowledged'];
