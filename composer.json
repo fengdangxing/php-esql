@@ -3,7 +3,6 @@
   "description": "php-elasticsearch-sql",
   "keywords": ["php-elasticsearch-sql","elasticsearch","sql"],
   "minimum-stability": "dev",
-  "prefer-stable" : true,
   "authors": [
     {
       "name": "fengdangxing",
@@ -23,6 +22,9 @@
       "url": "https://asset-packagist.org"
     }
   ],
+  "require-dev": {
+    "fengdangxing/php-elasticsearch-sql": "dev-master"
+  },
   "autoload": {
     "psr-4": {
       "fengdangxing\\esql\\": "lib"
