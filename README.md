@@ -1,7 +1,7 @@
 # php-elasticsearch-sql
 ElasticsearchSql 基类即可
 ```php
-#效果
+#效果demo
 $es = new User();
 $es->createIndex();//创建索引
 $es->addData(['user_id' => 1, 'user_name' => 'ffff'], 1);//添加文档
