@@ -3,6 +3,7 @@
   "description": "php-elasticsearch-sql",
   "keywords": ["php-elasticsearch-sql","elasticsearch","sql"],
   "minimum-stability": "dev",
+  "prefer-stable" : true,
   "authors": [
     {
       "name": "fengdangxing",
