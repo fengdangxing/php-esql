@@ -1,11 +1,7 @@
 {
   "name": "fengdangxing/php-elasticsearch-sql",
   "description": "php-elasticsearch-sql",
-  "keywords": [
-    "php-elasticsearch-sql",
-    "elasticsearch",
-    "sql"
-  ],
+  "keywords": ["php-elasticsearch-sql","elasticsearch","sql"],
   "minimum-stability": "dev",
   "authors": [
     {
