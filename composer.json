@@ -22,9 +22,6 @@
       "url": "https://asset-packagist.org"
     }
   ],
-  "require-dev": {
-    "fengdangxing/php-elasticsearch-sql": "dev-master"
-  },
   "autoload": {
     "psr-4": {
       "fengdangxing\\esql\\": "lib"
