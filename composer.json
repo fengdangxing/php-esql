@@ -2,7 +2,7 @@
   "name": "fengdangxing/php-elasticsearch-sql",
   "description": "php-elasticsearch-sql",
   "keywords": ["php-elasticsearch-sql","elasticsearch","sql"],
-  "minimum-stability": "master",
+  "minimum-stability": "dev",
   "authors": [
     {
       "name": "fengdangxing",
@@ -23,7 +23,7 @@
     }
   ],
   "require-dev": {
-    "fengdangxing/php-elasticsearch-sql": "master"
+    "fengdangxing/php-elasticsearch-sql": "dev-master"
   },
   "autoload": {
     "psr-4": {
