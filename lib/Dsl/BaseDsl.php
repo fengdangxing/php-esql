@@ -116,14 +116,14 @@ class BaseDsl
     }
 
     //分桶(分组)
-    public function termsAggregation($name, $field, array $agg, $size = 1000000, $sort = [])
+    public function termsAggregation($name, $field, array $agg, $size = 10000000, $sort = [])
     {
         $TermAggregation = new TermsAggregation($name);
         $TermAggregation->setField($field);
         if (!empty($sort)) {
             $TermAggregation->setParameters(['order' => $sort]);//增加排序 ['_count' => 'desc']
         }
-        //$TermAggregation->setParameters(['size' => $size]);//增加统计条数
+        $TermAggregation->setParameters(['size' => $size]);//增加统计条数
         if ($agg) {
             foreach ($agg as $k => $value) {
                 $TermAggregation->addAggregation($value);
