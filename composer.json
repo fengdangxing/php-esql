@@ -1,7 +1,7 @@
 {
-  "name": "fengdangxing/php-elasticsearch-sql2",
-  "description": "php-elasticsearch-sql",
-  "keywords": ["php-elasticsearch-sql","elasticsearch","sql"],
+  "name": "fengdangxing/elasticsearch-dsl",
+  "description": "elasticsearch-del",
+  "keywords": ["elasticsearch-dsl","elasticsearch","dsl"],
   "minimum-stability": "dev",
   "authors": [
     {
@@ -23,7 +23,7 @@
     }
   ],
   "require-dev": {
-    "fengdangxing/php-elasticsearch-sql": "dev-master"
+    "fengdangxing/elasticsearch-dsl": "dev-master"
   },
   "autoload": {
     "psr-4": {

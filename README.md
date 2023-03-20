@@ -1,12 +1,14 @@
-# php-elasticsearch-sql
-ElasticsearchSql 基类即可
+# elasticsearch-dsl
 ```php
-#效果demo
+#demo
 $es = new User();
 $es->createIndex();//创建索引
 $es->addData(['user_id' => 1, 'user_name' => 'ffff'], 1);//添加文档
 
-$es->mustTerm(['user_id' => 1, 'user_name' => 'ffff'])//must term 条件
+$es
+ //=条件
+ ->mustTerm(['user_id' => 1, 'user_name' => 'ffff'])
+ //
  ->mustRange(['user_id' => ['gt', 0]])
  ->orderBy(['user_id' => 'desc'])
  ->groupBy('term_user_id', 'user_id', [$es->count('count', 'user_id', true)]);
