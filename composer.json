@@ -1,6 +1,6 @@
 {
   "name": "fengdangxing/elasticsearch-dsl",
-  "description": "elasticsearch-del",
+  "description": "elasticsearch-dsl",
   "keywords": ["elasticsearch-dsl","elasticsearch","dsl"],
   "minimum-stability": "dev",
   "authors": [
@@ -22,9 +22,6 @@
       "url": "https://asset-packagist.org"
     }
   ],
-  "require-dev": {
-    "fengdangxing/php-elasticsearch-sql": "dev-master"
-  },
   "autoload": {
     "psr-4": {
       "fengdangxing\\esql\\": "lib"
