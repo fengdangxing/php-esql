@@ -23,7 +23,7 @@
     }
   ],
   "require-dev": {
-    "fengdangxing/elasticsearch-dsl": "dev-master"
+    "fengdangxing/php-elasticsearch-sql": "dev-master"
   },
   "autoload": {
     "psr-4": {
