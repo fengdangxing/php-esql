@@ -22,7 +22,7 @@ use ONGR\ElasticsearchDSL\Sort\FieldSort;
 class BaseDsl
 {
     //查询
-    public $matchAll;
+    public $matchAll;//全文搜索或者精确查询
     public $match;//全文搜索或者精确查询
     public $multiMatch;//一个字段多条件查询
     public $range;//范围查询

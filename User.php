@@ -14,7 +14,7 @@ use fengdangxing\esql\EsType;
 
 /**
  * @desc es 用户模型类
- * @author 1
+ * @author fengdangxing
  * @version v2.1
  * @date: 2020/09/17
  * Class User
