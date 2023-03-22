@@ -20,10 +20,7 @@ trait ESql
     }
 
     /**
-     * @desc 必须等于条件
-     * @author 1
-     * @version v2.1
-     * @date: 2021/11/30
+     * 必须等于条件
      * @param array $where
      * @return ESql
      */
@@ -41,10 +38,7 @@ trait ESql
     }
 
     /**
-     * @desc 必须等于多值条件
-     * @author 1
-     * @version v2.1
-     * @date: 2021/11/30
+     * 必须等于多值条件
      * @param array $where
      * @return ESql
      */
@@ -64,10 +58,7 @@ trait ESql
     }
 
     /**
-     * @desc 必须包含条件
-     * @author 1
-     * @version v2.1
-     * @date: 2021/11/30
+     * 必须包含条件
      * @param array $where
      * @return ESql
      */
@@ -85,10 +76,7 @@ trait ESql
     }
 
     /**
-     * @desc 必须不等于条件
-     * @author 1
-     * @version v2.1
-     * @date: 2021/11/30
+     * 必须不等于条件
      * @param array $where
      * @return ESql
      */
@@ -106,10 +94,7 @@ trait ESql
     }
 
     /**
-     * @desc 必须不等于条件
-     * @author 1
-     * @version v2.1
-     * @date: 2021/11/30
+     * 必须不等于条件
      * @param array $where
      * @return ESql
      */
@@ -129,10 +114,7 @@ trait ESql
     }
 
     /**
-     * @desc 必须范围查询
-     * @author 1
-     * @version v2.1
-     * @date: 2021/11/30
+     * 必须范围查询
      * @param array $where
      * @return ESql
      * //gt 大于
@@ -160,10 +142,7 @@ trait ESql
     }
 
     /**
-     * @desc 功能描述
-     * @author 1
-     * @version v2.1
-     * @date: 2021/12/13
+     * 功能描述
      * @param $path
      * @param $EsModel | 当前模型类
      * @return $this
@@ -176,10 +155,7 @@ trait ESql
     }
 
     /**
-     * @desc 或者条件-包含查询
-     * @author 1
-     * @version v2.1
-     * @date: 2021/12/01
+     * 或者条件-包含查询
      * @param array $where
      * @return ESql
      * @throws \Exception
@@ -198,10 +174,7 @@ trait ESql
     }
 
     /**
-     * @desc 或者条件-包含查询
-     * @author 1
-     * @version v2.1
-     * @date: 2021/12/31
+     * 或者条件-包含查询
      * @param array $where
      * @return $this
      */
@@ -219,10 +192,7 @@ trait ESql
     }
 
     /**
-     * @desc 或者条件-范围查询
-     * @author 1
-     * @version v2.1
-     * @date: 2021/12/01
+     * 或者条件-范围查询
      * @param array $where
      * @return ESql
      * @throws \Exception
@@ -266,10 +236,7 @@ trait ESql
     }
 
     /**
-     * @desc 统计不显示聚合列表
-     * @author 1
-     * @version v2.1
-     * @date: 2021/12/01
+     * 统计不显示聚合列表
      */
     public function notList()
     {
@@ -279,10 +246,7 @@ trait ESql
     }
 
     /**
-     * @desc 单个分桶
-     * @author 1
-     * @version v2.1
-     * @date: 2021/12/31
+     * 单个分桶
      * @param $name
      * @param $field
      * @param array $aggs
@@ -298,10 +262,7 @@ trait ESql
     }
 
     /**
-     * @desc 聚合分页
-     * @author 1
-     * @version v2.1
-     * @date: 2021/12/31
+     * 聚合分页
      * @param int $from
      * @param int $size
      * @return \ONGR\ElasticsearchDSL\Aggregation\Pipeline\BucketSortAggregation
@@ -333,10 +294,7 @@ trait ESql
     }
 
     /**
-     * @desc 统计指标数值
-     * @author 1
-     * @version v2.1
-     * @date: 2021/12/31
+     * 统计指标数值
      * @param $name
      * @param $field
      * @param bool $isGroupBy

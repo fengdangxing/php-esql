@@ -5,12 +5,7 @@ namespace fengdangxing\esql\Dsl;
 use ONGR\ElasticsearchDSL\Search;
 
 /**
- * @desc 排序
- * @author 1
- * @version v2.1
- * @date: 2021/11/29
- * Class SortDsl
- * @package common\es_new\lib\Dsl
+ * 排序
  */
 class SortDsl extends BaseDsl
 {

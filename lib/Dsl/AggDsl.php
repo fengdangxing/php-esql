@@ -6,12 +6,8 @@ use ONGR\ElasticsearchDSL\Aggregation\Pipeline\BucketSortAggregation;
 use ONGR\ElasticsearchDSL\Search;
 
 /**
- * @desc 聚合
- * @author 1
- * @version v2.1
- * @date: 2021/11/29
+ * 聚合
  * Class AggsDsl
- * @package common\es_new\lib\Dsl
  */
 class AggDsl extends BaseDsl
 {
@@ -42,10 +38,7 @@ class AggDsl extends BaseDsl
     }
 
     /**
-     * @desc 聚合分页排序
-     * @author 1
-     * @version v2.1
-     * @date: 2021/12/31
+     * 聚合分页排序
      * @param int $from
      * @param int $size
      * @return BucketSortAggregation

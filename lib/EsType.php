@@ -3,13 +3,8 @@
 namespace fengdangxing\esql;
 
 /**
- * @desc es字段类型-常用而已
- * @author 1
- * @version v2.1
- * @date: 2021/07/19
- * ${PARAM_DOC}
+ * es字段类型-常用而已
  * @return ${TYPE_HINT}
- * ${THROWS_DOC}
  */
 trait EsType
 {
@@ -32,10 +27,7 @@ trait EsType
     private static $fields;
 
     /**
-     * @desc 文本 会分词，然后进行索引 支持模糊、精确查询 不支持聚合
-     * @author 1
-     * @version v2.1
-     * @date: 2021/12/01
+     * 文本 会分词，然后进行索引 支持模糊、精确查询 不支持聚合
      * @param bool $is_analyzer
      * @param bool $index
      * @return array
@@ -51,10 +43,7 @@ trait EsType
     }
 
     /**
-     * @desc 不进行分词，直接索引 支持模糊、精确查询 支持聚合
-     * @author 1
-     * @version v2.1
-     * @date: 2021/12/01
+     * 不进行分词，直接索引 支持模糊、精确查询 支持聚合
      * @return array
      */
     public static function getKeyword()
@@ -64,10 +53,6 @@ trait EsType
 
 
     /**
-     * @desc 功能描述
-     * @author 1
-     * @version v2.1
-     * @date: 2021/12/01
      * @return array
      */
     public static function getLong()
@@ -76,10 +61,6 @@ trait EsType
     }
 
     /**
-     * @desc 功能描述
-     * @author 1
-     * @version v2.1
-     * @date: 2021/12/01
      * @return array
      */
     public static function getInteger()
@@ -88,10 +69,6 @@ trait EsType
     }
 
     /**
-     * @desc 功能描述
-     * @author 1
-     * @version v2.1
-     * @date: 2021/12/01
      * @return array
      */
     public static function getShort()
@@ -100,10 +77,6 @@ trait EsType
     }
 
     /**
-     * @desc 功能描述
-     * @author 1
-     * @version v2.1
-     * @date: 2021/12/01
      * @return array
      */
     public static function getByte()
@@ -112,10 +85,6 @@ trait EsType
     }
 
     /**
-     * @desc 功能描述
-     * @author 1
-     * @version v2.1
-     * @date: 2021/12/01
      * @return array
      */
     public static function getDouble()
@@ -124,10 +93,6 @@ trait EsType
     }
 
     /**
-     * @desc 功能描述
-     * @author 1
-     * @version v2.1
-     * @date: 2021/12/01
      * @return array
      */
     public static function getFloat()
@@ -136,10 +101,6 @@ trait EsType
     }
 
     /**
-     * @desc 功能描述
-     * @author 1
-     * @version v2.1
-     * @date: 2021/12/01
      * @param string $format 格式
      * @return array
      */
@@ -150,10 +111,6 @@ trait EsType
     }
 
     /**
-     * @desc 功能描述
-     * @author 1
-     * @version v2.1
-     * @date: 2021/12/01
      * @return array
      */
     public static function getObject()
@@ -162,10 +119,6 @@ trait EsType
     }
 
     /**
-     * @desc 功能描述
-     * @author 1
-     * @version v2.1
-     * @date: 2021/12/01
      * @return array
      */
     public static function getIp()
@@ -174,10 +127,6 @@ trait EsType
     }
 
     /**
-     * @desc 返回组合数据
-     * @author 1
-     * @version v2.1
-     * @date: 2021/12/01
      * @param $type
      * @return array
      */

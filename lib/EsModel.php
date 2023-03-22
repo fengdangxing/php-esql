@@ -5,12 +5,7 @@ namespace fengdangxing\esql;
 use Elasticsearch\ClientBuilder;
 
 /**
- * @desc es模型基类
- * @author 1
- * @version v2.1
- * @date: 2021/11/30
- * Class Yii2ESql
- * @package common\es_new\lib
+ * es模型基类
  */
 class EsModel
 {
@@ -18,7 +13,7 @@ class EsModel
     use EsType;
     //子模型只要定义这几个参数
     private $index = '';//索引名称
-    private $type = '';//文档名称
+    private $type = '_doc';//文档名称
     private $mapping = [];//字段列表
     private $number_of_shards = 3;//定义分片个数
     private $number_of_replicas = 2;//定义副本个数
@@ -48,7 +43,6 @@ class EsModel
      * @param string $username
      * @param string $password
      * @return \Elasticsearch\Client
-     * @access public
      */
     private static function getDb($hosts, $username = '', $password = '')
     {
@@ -100,6 +94,9 @@ class EsModel
      */
     public function getMapping()
     {
+        if (empty($this->mapping)) {
+            $this->setMapping([]);
+        }
         return $this->mapping;
     }
 
@@ -216,10 +213,7 @@ class EsModel
     }
 
     /**
-     * @desc 更新一条文档内容
-     * @author 1
-     * @version v2.1
-     * @date: 2021/12/10
+     * 更新一条文档内容
      * @param array $data
      * @param $id
      * @param int $retry_on_conflict
@@ -237,10 +231,7 @@ class EsModel
     }
 
     /**
-     * @desc 是否存在文档
-     * @author 1
-     * @version v2.1
-     * @date: 2021/12/14
+     * 是否存在文档
      * @param $id
      * @return bool
      */
@@ -253,10 +244,7 @@ class EsModel
     }
 
     /**
-     * @desc 获取连接
-     * @author 1
-     * @version v2.1
-     * @date: 2021/12/14
+     * 获取连接
      * @return \Elasticsearch\Client
      */
     public function getClients()
@@ -265,10 +253,7 @@ class EsModel
     }
 
     /**
-     * @desc 执行dsl语句
-     * @author 1
-     * @version v2.1
-     * @date: 2021/12/14
+     * 执行dsl语句
      * @param array $field
      * @return mixed
      */
@@ -301,10 +286,7 @@ class EsModel
     }
 
     /**
-     * @desc 更新设置
-     * @author 1
-     * @version v2.1
-     * @date: 2022/01/06
+     * 更新设置
      * @return mixed
      */
     public function updateSettings()

@@ -6,12 +6,7 @@ use ONGR\ElasticsearchDSL\Query\Compound\BoolQuery;
 use ONGR\ElasticsearchDSL\Search;
 
 /**
- * @desc bool过滤器
- * @author 1
- * @version v2.1
- * @date: 2021/11/29
- * Class BoolDsl
- * @package common\es_new\lib\Dsl
+ * bool过滤器
  */
 class BoolDsl extends BaseDsl
 {
